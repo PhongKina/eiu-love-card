@@ -1,4 +1,4 @@
-﻿const photoFiles = [
+const photoFiles = [
     "eiu1.jfif", "eiu2.jfif", "eiu3.jfif", "eiu4.jfif", "eiu5.jfif",
     "eiu6.jfif", "eiu7.jfif", "eiu8.jfif", "eiu9.jfif", "eiu10.jfif", "eiu11.jfif"
 ];
@@ -44,7 +44,7 @@ photoFiles.forEach((file, index) => {
     const heartDecoration = document.createElement("span");
     heartDecoration.className = "photo-hearts";
     heartDecoration.setAttribute("aria-hidden", "true");
-    heartDecoration.innerHTML = '<span class="photo-heart photo-heart-one">\u2665</span><span class="photo-heart photo-heart-two">\u2665</span><span class="photo-heart photo-heart-three">\u2665</span>';
+    heartDecoration.innerHTML = '<span class="photo-heart photo-heart-one"><svg viewBox="0 0 24 24"><path d="M12 21s-8.5-5.2-9.8-10.2C1 6.7 3.2 3.5 6.7 3.5c2.2 0 4.1 1.3 5.3 3.1 1.2-1.8 3.1-3.1 5.3-3.1 3.5 0 5.7 3.2 4.5 7.3C20.5 15.8 12 21 12 21z"/></svg></span><span class="photo-heart photo-heart-two"><svg viewBox="0 0 24 24"><path d="M12 21s-8.5-5.2-9.8-10.2C1 6.7 3.2 3.5 6.7 3.5c2.2 0 4.1 1.3 5.3 3.1 1.2-1.8 3.1-3.1 5.3-3.1 3.5 0 5.7 3.2 4.5 7.3C20.5 15.8 12 21 12 21z"/></svg></span><span class="photo-heart photo-heart-three"><svg viewBox="0 0 24 24"><path d="M12 21s-8.5-5.2-9.8-10.2C1 6.7 3.2 3.5 6.7 3.5c2.2 0 4.1 1.3 5.3 3.1 1.2-1.8 3.1-3.1 5.3-3.1 3.5 0 5.7 3.2 4.5 7.3C20.5 15.8 12 21 12 21z"/></svg></span>';
     frame.appendChild(heartDecoration);
     const wishCaption = document.createElement("figcaption");
     wishCaption.className = "photo-wish";
