@@ -112,6 +112,7 @@ photoFiles.forEach((file, index) => {
     };
     frame.addEventListener("pointerup", finishDrag);
     frame.addEventListener("pointercancel", finishDrag);
+    frame.addEventListener("lostpointercapture", finishDrag);
     frame.addEventListener("keydown", event => {
         if (event.key === "Enter" || event.key === " ") {
             event.preventDefault();
@@ -182,6 +183,9 @@ sunflowerCardDialog.addEventListener("close", () => {
 const canvas = document.getElementById("starCanvas");
 const context = canvas.getContext("2d");
 const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+const coarsePointer = window.matchMedia("(pointer: coarse)").matches;
+const starFrameInterval = coarsePointer ? 1000 / 30 : 0;
+let nextStarFrameAt = 0;
 let stars = [];
 let meteors = [];
 let width = window.innerWidth;
@@ -194,7 +198,7 @@ let nextMeteorAt = 0;
 let previousFrame = 0;
 
 function resizeStars() {
-    const ratio = Math.min(window.devicePixelRatio || 1, 2);
+    const ratio = Math.min(window.devicePixelRatio || 1, coarsePointer ? 1.35 : 2);
     width = window.innerWidth;
     height = window.innerHeight;
     canvas.width = Math.floor(width * ratio);
@@ -203,7 +207,7 @@ function resizeStars() {
     canvas.style.height = height + "px";
     context.setTransform(ratio, 0, 0, ratio, 0, 0);
 
-    const count = Math.min(620, Math.floor(width * height / 2200));
+    const count = Math.min(coarsePointer ? 150 : 620, Math.floor(width * height / (coarsePointer ? 3600 : 2200)));
     stars = Array.from({ length: count }, () => {
         const depth = 0.34 + Math.random() * 0.76;
         return {
@@ -267,6 +271,11 @@ function drawMeteors(step) {
 }
 
 function drawStars(timestamp = 0) {
+    if (starFrameInterval && timestamp < nextStarFrameAt) {
+        requestAnimationFrame(drawStars);
+        return;
+    }
+    nextStarFrameAt = timestamp + starFrameInterval;
     const step = previousFrame ? Math.min(2.5, (timestamp - previousFrame) / 16.67) : 1;
     previousFrame = timestamp;
     context.clearRect(0, 0, width, height);
@@ -293,7 +302,7 @@ function drawStars(timestamp = 0) {
         context.arc(x, y, radius, 0, Math.PI * 2);
         context.fillStyle = "rgba(255, 239, 204, " + alpha + ")";
         if (star.depth < 0.62) {
-            context.shadowBlur = 9;
+            context.shadowBlur = coarsePointer ? 3 : 9;
             context.shadowColor = "#ffdf9a";
         }
         context.fill();
