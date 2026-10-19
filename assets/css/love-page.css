@@ -16,8 +16,8 @@ body {
 h1 { max-width: 760px; margin: 0 auto; color: #fff1cf; font-size: clamp(30px, 4.4vw, 52px); font-weight: 400; line-height: 1.2; text-wrap: balance; text-shadow: 0 0 28px #ffd88a48; }
 .subtitle { max-width: 620px; margin: 14px auto 0; color: #e5d9f2; font-size: clamp(15px, 2vw, 19px); line-height: 1.65; text-wrap: balance; }
 .interaction-hint { margin: 8px 0 0; color: #d5c5e7b8; font: 11px/1.5 system-ui, sans-serif; letter-spacing: .03em; }
-.heart-orbit { display: inline-grid; place-items: center; width: 42px; height: 42px; margin-top: 17px; border: 1px solid #ffcf9b88; border-radius: 50%; color: #ffd56a; font-size: 19px; box-shadow: 0 0 24px #ff99c344, inset 0 0 18px #ffdfbd22; animation: heartbeat 2.4s ease-in-out infinite; }
-.heart-orbit svg { display: block; width: 20px; height: 20px; fill: currentColor; filter: drop-shadow(0 0 6px #ffd56a88); }
+.heart-orbit { display: inline-grid; place-items: center; width: 42px; height: 42px; margin-top: 17px; border: 1px solid #ffcf9b88; border-radius: 50%; color: #ffb8cc; font-size: 19px; box-shadow: 0 0 24px #ff99c344, inset 0 0 18px #ffdfbd22; animation: heartbeat 2.4s ease-in-out infinite; }
+.heart-orbit svg { display: block; width: 20px; height: 20px; fill: currentColor; filter: drop-shadow(0 0 6px #ff99c388); }
 .inline-heart { display: inline-block; width: .82em; height: .82em; vertical-align: -.08em; fill: currentColor; }
 .memory-field { position: relative; flex: 1 1 auto; width: 100%; height: auto; min-height: 280px; margin: 0 auto; }
 .flower-glow { position: absolute; z-index: 4; left: 50%; top: 49%; display: grid; place-items: center; width: clamp(320px, 48vw, 580px); aspect-ratio: 1; transform: translate(-50%, -50%); border-radius: 50%; color: #ffe0a6; font-size: clamp(130px, 20vw, 230px); background: radial-gradient(circle, #ffb7d31d 0 31%, #e6bbff12 32% 52%, transparent 69%); filter: drop-shadow(0 0 38px #f4b8ef55); animation: flowerPulse 6s ease-in-out infinite; }
