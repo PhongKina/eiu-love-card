@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <title>Gửi Tặng Người Anh Yêu 🌻</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&amp;display=swap&amp;subset=vietnamese" rel="stylesheet">
+    
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+    <canvas id="sparkleCanvas"></canvas>
+
+    <div class="main-container">
+        <div class="bouquet-box" id="bouquet" role="button" tabindex="0" aria-label="Mở bó hoa">
+            <span class="touch-hint"><span class="touch-hint-text">Chạm vào nhé</span><span class="touch-hint-heart" aria-hidden="true">&#10084;&#65039;</span></span>
+            <img src="assets/images/bouquet-transparent.png" alt="Bó hoa hướng dương" class="bouquet-img">
+
+            <div class="photo-slot slot-1">
+                <!-- Thay src hiện tại bằng src="assets/images/ny-1.jpg" vào thẻ img bên dưới khi có ảnh. -->
+                <img src="assets/images/eiu10.jfif" alt="Ảnh 1" hidden>
+            </div>
+            <div class="photo-slot slot-2">
+                <!-- Thay src hiện tại bằng src="assets/images/ny-2.jpg" vào thẻ img bên dưới khi có ảnh. -->
+                <img src="assets/images/eiu2.jfif" alt="Ảnh 2" hidden>
+            </div>
+            <div class="photo-slot slot-3">
+                <!-- Thay src hiện tại bằng src="assets/images/ny-3.jpg" vào thẻ img bên dưới khi có ảnh. -->
+                <img src="assets/images/eiu11.jfif" alt="Ảnh 3" hidden>
+            </div>
+            <div class="photo-slot slot-4">
+                <!-- Thay src hiện tại bằng src="assets/images/ny-4.jpg" vào thẻ img bên dưới khi có ảnh. -->
+                <img src="assets/images/eiu3.jfif" alt="Ảnh 4" hidden>
+            </div>
+            <div class="photo-slot slot-5">
+                <!-- Thay src hiện tại bằng src="assets/images/ny-5.jpg" vào thẻ img bên dưới khi có ảnh. -->
+                <img src="assets/images/eiu9.jfif" alt="Ảnh 5" hidden>
+            </div>
+        </div>
+    </div>
+
+    <button class="card-invitation" id="cardInvitation" hidden aria-label="M&#7903; thi&#7879;p b&#7857;ng m&#7853;t m&#227;">
+        <span class="lock-preview" aria-hidden="true"><svg viewBox="0 0 64 64"><path d="M18 28v-9a14 14 0 0 1 28 0v9"/><rect x="11" y="28" width="42" height="30" rx="7"/><circle cx="32" cy="41" r="3"/><path d="M32 44v6"/></svg></span>
+        <span>Thi&#7879;p c&#243; kh&#243;a &#183; Nh&#7853;p m&#7853;t m&#227; &#273;&#7875; m&#7903; &#9829;</span>
+    </button>
+
+    <dialog class="love-dialog" id="loveDialog" aria-label="Thiệp dành tặng bé">
+        <button class="close-card" id="closeCard" aria-label="Đóng thiệp">×</button>
+        <button class="envelope-open" id="openLetter" aria-label="Nh&#7853;p m&#7853;t m&#227; &#273;&#7875; m&#7903; thi&#7879;p">
+            <span class="lock-illustration" aria-hidden="true"><svg viewBox="0 0 96 112"><path d="M25 43V29a23 23 0 0 1 46 0v14"/><rect x="13" y="42" width="70" height="58" rx="13"/><circle cx="48" cy="66" r="6"/><path d="M48 72v13"/></svg></span>
+            <span class="envelope-instruction">Ch&#7841;m v&#224;o &#7893; kh&#243;a &#273;&#7875; nh&#7853;p m&#7853;t m&#227;</span>
+        </button>
+        <form class="date-gate love-letter" id="dateGate" hidden novalidate>
+            <div class="keypad-lock" aria-hidden="true"><svg viewBox="0 0 64 64"><path d="M19 29v-9a13 13 0 0 1 26 0v9"/><rect x="12" y="28" width="40" height="29" rx="7"/><circle cx="32" cy="40" r="3"/><path d="M32 43v6"/></svg></div>
+            <p class="letter-eyebrow">Một kỷ niệm của hai đứa ♥</p>
+            <h1>Bé còn nhớ không?</h1>
+            <label for="meetingDate">Nh&#7853;p m&#7853;t m&#227; 4 ch&#7919; s&#7889; c&#7911;a ng&#224;y &#273;&#7847;u ti&#234;n m&#236;nh g&#7863;p nhau</label>
+            <p class="date-format" id="dateFormat">G&#7907;i &#253;: ng&#224;y g&#7863;p &#273;&#7847;u ti&#234;n c&#7911;a hai &#273;&#7913;a</p>
+            <input id="meetingDate" name="meetingDate" type="text" inputmode="numeric" maxlength="4" pattern="[0-9]{4}" placeholder="&#8226;&#8226;&#8226;&#8226;" autocomplete="off" aria-describedby="dateFormat dateError" required>
+            <p id="dateError" class="date-error" role="status" aria-live="polite"></p>
+            <button class="unlock-letter" type="submit"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 1 1 8 0v3"/><circle cx="12" cy="15" r="1"/></svg><span>M&#7903; l&#7901;i nh&#7855;n</span><span aria-hidden="true">&#10084;</span></button>
+        </form>
+        <article class="love-letter" id="loveLetter" hidden tabindex="-1">
+            <p class="letter-eyebrow">Dành tặng bé ♥</p>
+            <h1>Chúc mừng 20/10</h1>
+            <!-- Thay lời chúc bên dưới bằng lời nhắn riêng của bạn. -->
+            <p>Chúc em luôn vui vẻ, hạnh phúc và rạng rỡ như những đóa hoa này.</p>
+            <p>Cảm ơn em đã đến và làm những ngày bình thường trở nên thật đặc biệt.</p>
+            <p class="letter-signature">Thương em thật nhiều ♥</p>
+        </article>
+    </dialog>
+    <script type="module" src="assets/js/script.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+

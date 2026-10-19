@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#090b21">
+    <title>G&#7917;i em, gi&#7919;a tr&#7901;i sao</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/love-page.css">
+</head>
+<body>
+    <canvas class="star-canvas" id="starCanvas" aria-hidden="true"></canvas>
+    <div class="sky-glow sky-glow-one" aria-hidden="true"></div>
+    <div class="sky-glow sky-glow-two" aria-hidden="true"></div>
+    <main class="celebration">
+        <header class="greeting">
+            <p class="eyebrow">M&#7897;t &#273;i&#7873;u anh mu&#7889;n n&#243;i v&#7899;i em</p>
+            <h1>G&#7863;p &#273;&#432;&#7907;c em l&#224; &#273;i&#7873;u tuy&#7879;t v&#7901;i nh&#7845;t</h1>
+            <p class="subtitle">Ch&#250;c em m&#7897;t ng&#224;y 20/10 vui v&#7867; &lt;3</p>
+            <p class="interaction-hint">K&#233;o &#7843;nh b&#7857;ng chu&#7897;t &#273;&#7875; di chuy&#7875;n &#183; B&#7845;m &#273;&#7875; xem l&#7901;i ch&#250;c</p>
+            <span class="heart-orbit" aria-hidden="true">&#10084;</span>
+        </header>
+        <section class="memory-field" id="memoryField" aria-label="Nh&#7919;ng kho&#7843;nh kh&#7855;c c&#7911;a ch&#250;ng m&#236;nh">
+            <div class="flower-glow" aria-hidden="true"><span>&#10047;</span></div>
+            <div class="photo-field" id="photoField"></div>
+        </section>
+        <footer class="closing">
+            <p>C&#7843;m &#417;n em &#273;&#227; l&#224;m b&#7847;u tr&#7901;i c&#7911;a anh s&#225;ng h&#417;n.</p>
+            <span>&#10022; Th&#432;&#417;ng em th&#7853;t nhi&#7873;u &#10022;</span>
+        </footer>
+    </main>
+    <button class="love-card-trigger" id="loveCardTrigger" type="button" hidden aria-haspopup="dialog" aria-controls="sunflowerCardDialog">
+        <svg class="trigger-sunflower" viewBox="0 0 100 100" aria-hidden="true"><g fill="#f4c84b"><ellipse cx="50" cy="19" rx="8" ry="19"/><ellipse cx="50" cy="19" rx="8" ry="19" transform="rotate(30 50 50)"/><ellipse cx="50" cy="19" rx="8" ry="19" transform="rotate(60 50 50)"/><ellipse cx="50" cy="19" rx="8" ry="19" transform="rotate(90 50 50)"/><ellipse cx="50" cy="19" rx="8" ry="19" transform="rotate(120 50 50)"/><ellipse cx="50" cy="19" rx="8" ry="19" transform="rotate(150 50 50)"/><ellipse cx="50" cy="19" rx="8" ry="19" transform="rotate(180 50 50)"/><ellipse cx="50" cy="19" rx="8" ry="19" transform="rotate(210 50 50)"/><ellipse cx="50" cy="19" rx="8" ry="19" transform="rotate(240 50 50)"/><ellipse cx="50" cy="19" rx="8" ry="19" transform="rotate(270 50 50)"/><ellipse cx="50" cy="19" rx="8" ry="19" transform="rotate(300 50 50)"/><ellipse cx="50" cy="19" rx="8" ry="19" transform="rotate(330 50 50)"/></g><circle cx="50" cy="50" r="22" fill="#744522"/><circle cx="50" cy="50" r="17" fill="#9a6328"/><g fill="#f4d889"><circle cx="43" cy="44" r="1.5"/><circle cx="54" cy="42" r="1.5"/><circle cx="59" cy="51" r="1.5"/><circle cx="47" cy="57" r="1.5"/><circle cx="40" cy="53" r="1.5"/></g></svg>
+        <span><small>M&#7897;t l&#225; th&#432; nh&#7887;</small><strong>D&#224;nh ri&#234;ng cho em</strong></span>
+    </button>
+    <dialog class="sunflower-card-dialog" id="sunflowerCardDialog" aria-label="Thi&#7879;p hoa h&#432;&#7899;ng d&#432;&#417;ng d&#224;nh t&#7863;ng em">
+        <button class="sunflower-card-close" id="sunflowerCardClose" type="button" aria-label="&#272;&#243;ng thi&#7879;p">&times;</button>
+        <section class="sunflower-envelope" id="sunflowerEnvelope">
+            <div class="envelope-flap" aria-hidden="true"></div>
+            <svg class="envelope-flower envelope-flower-left" viewBox="0 0 100 100" aria-hidden="true"><g fill="#e9b937"><ellipse cx="50" cy="19" rx="8" ry="19"/><ellipse cx="50" cy="19" rx="8" ry="19" transform="rotate(30 50 50)"/><ellipse cx="50" cy="19" rx="8" ry="19" transform="rotate(60 50 50)"/><ellipse cx="50" cy="19" rx="8" ry="19" transform="rotate(90 50 50)"/><ellipse cx="50" cy="19" rx="8" ry="19" transform="rotate(120 50 50)"/><ellipse cx="50" cy="19" rx="8" ry="19" transform="rotate(150 50 50)"/><ellipse cx="50" cy="19" rx="8" ry="19" transform="rotate(180 50 50)"/><ellipse cx="50" cy="19" rx="8" ry="19" transform="rotate(210 50 50)"/><ellipse cx="50" cy="19" rx="8" ry="19" transform="rotate(240 50 50)"/><ellipse cx="50" cy="19" rx="8" ry="19" transform="rotate(270 50 50)"/><ellipse cx="50" cy="19" rx="8" ry="19" transform="rotate(300 50 50)"/><ellipse cx="50" cy="19" rx="8" ry="19" transform="rotate(330 50 50)"/></g><circle cx="50" cy="50" r="22" fill="#744522"/><circle cx="50" cy="50" r="17" fill="#9a6328"/></svg>
+            <svg class="envelope-flower envelope-flower-right" viewBox="0 0 100 100" aria-hidden="true"><g fill="#e9b937"><ellipse cx="50" cy="19" rx="8" ry="19"/><ellipse cx="50" cy="19" rx="8" ry="19" transform="rotate(30 50 50)"/><ellipse cx="50" cy="19" rx="8" ry="19" transform="rotate(60 50 50)"/><ellipse cx="50" cy="19" rx="8" ry="19" transform="rotate(90 50 50)"/><ellipse cx="50" cy="19" rx="8" ry="19" transform="rotate(120 50 50)"/><ellipse cx="50" cy="19" rx="8" ry="19" transform="rotate(150 50 50)"/><ellipse cx="50" cy="19" rx="8" ry="19" transform="rotate(180 50 50)"/><ellipse cx="50" cy="19" rx="8" ry="19" transform="rotate(210 50 50)"/><ellipse cx="50" cy="19" rx="8" ry="19" transform="rotate(240 50 50)"/><ellipse cx="50" cy="19" rx="8" ry="19" transform="rotate(270 50 50)"/><ellipse cx="50" cy="19" rx="8" ry="19" transform="rotate(300 50 50)"/><ellipse cx="50" cy="19" rx="8" ry="19" transform="rotate(330 50 50)"/></g><circle cx="50" cy="50" r="22" fill="#744522"/><circle cx="50" cy="50" r="17" fill="#9a6328"/></svg>
+            <div class="envelope-greeting"><p>D&#224;nh t&#7863;ng em</p><span aria-hidden="true">&#8212; &#10084; &#8212;</span><strong>20/10</strong><small>M&#7897;t ch&#250;t y&#234;u th&#432;&#417;ng</small></div>
+            <button class="sunflower-seal" id="sunflowerSeal" type="button" aria-label="M&#7903; l&#225; th&#432;"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-8.2-5.2-10.2-10.1C.2 7.2 2.4 3.5 6.4 3.5c2.4 0 4.2 1.5 5.6 3.5 1.4-2 3.2-3.5 5.6-3.5 4 0 6.2 3.7 4.6 7.4C20.2 15.8 12 21 12 21Z"/></svg></button>
+            <p class="envelope-tap-hint">Ch&#7841;m v&#224;o con d&#7845;u &#273;&#7875; m&#7903;</p>
+        </section>
+        <article class="sunflower-letter" id="sunflowerLetter" hidden>
+            <div class="letter-copy">
+                <p class="letter-eyebrow">D&#224;nh ri&#234;ng cho em &#9829;</p>
+                <h2>G&#7917;i c&#244; g&#225;i b&#233; nh&#7887; c&#7911;a anh</h2>
+                <p>Anh ch&#250;c em ng&#224;y 20/10 l&#250;c n&#224;o c&#361;ng xinh &#273;&#7865;p, may m&#7855;n, nhi&#7873;u s&#7913;c kh&#7887;e v&#224; lu&#244;n vui v&#7867;.</p>
+                <p>Anh mong r&#7857;ng em s&#7869; &#273;&#7891;ng h&#224;nh c&#249;ng anh tr&#234;n ch&#7863;ng &#273;&#432;&#7901;ng ph&#237;a tr&#432;&#7899;c.</p>
+                <p>C&#7843;m &#417;n em v&#236; t&#7845;t c&#7843;.</p>
+                <p class="sunflower-signature">Anh y&#234;u em b&#233; c&#7911;a anh &#9829;</p>
+            </div>
+            <figure class="letter-photo" tabindex="0" role="button" aria-label="Ph&#243;ng to &#7843;nh trong th&#432;" aria-expanded="false"><img src="assets/images/eiu1.jfif" alt="Kho&#7843;nh kh&#7855;c c&#7911;a em"><span class="letter-photo-star letter-photo-star-one" aria-hidden="true">&#10022;</span><span class="letter-photo-star letter-photo-star-two" aria-hidden="true">&#10023;</span><span class="letter-photo-star letter-photo-star-three" aria-hidden="true">&#10022;</span><figcaption>&#272;i&#7873;u anh mu&#7889;n gi&#7919; g&#236;n</figcaption></figure>
+        </article>
+    </dialog>
+    <dialog class="photo-viewer" id="photoViewer" aria-label="Anh ky niem va loi chuc">
+        <button class="viewer-close" id="viewerClose" type="button" aria-label="Dong anh">&times;</button>
+        <figure class="viewer-content">
+            <img id="viewerImage" alt="">
+            <figcaption id="viewerWish"></figcaption>
+        </figure>
+    </dialog>
+    <script src="assets/js/love-page.js"></script>
+    <audio id="backgroundMusic" src="assets/audio/Ch%E1%BB%9D%20Ch%C3%BAt%20x%20Ch%E1%BA%B3ng%20Gi%E1%BB%91ng%20Gi%C3%A1ng%20Sinh%20x%20Track%2006%20x%20N%C6%A1i%20N%C3%A0y%20C%C3%B3%20Anh%20x%20In%20Love%20Douyin%20Top%20Music.mp3" autoplay loop muted preload="auto"></audio>
+    <button class="music-toggle" id="musicToggle" type="button" aria-label="Bật nhạc">
+        <span class="music-icon" aria-hidden="true">&#9835;</span>
+        <span id="musicLabel">Bật nhạc</span>
+    </button>
+    <script src="assets/js/music.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+
