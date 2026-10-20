@@ -589,3 +589,23 @@ h1 { max-width: 760px; margin: 0 auto; color: #fff1cf; font-size: clamp(30px, 4.
     0%, 100% { translate: 0 -50%; rotate: -7deg; }
     50% { translate: 0 calc(-50% - 8px); rotate: 2deg; }
 }
+/* Give the moon and star their own separate orbital rings. */
+.flower-glow .flower-moon,
+.flower-glow .flower-star {
+    box-sizing: border-box;
+    padding: clamp(12px, 2vw, 20px);
+    border: 1px solid #ffe8b977;
+    border-radius: 50%;
+    background: radial-gradient(circle, #fff1c51a 0 48%, #fff1c508 70%, transparent 72%);
+}
+.flower-glow .flower-moon {
+    left: 5%;
+    right: auto;
+    box-shadow: 0 0 18px #ffe59a55, inset 0 0 22px #ffe59a16;
+}
+.flower-glow .flower-star {
+    right: 5%;
+    left: auto;
+    border-color: #f5dcff88;
+    box-shadow: 0 0 18px #e8c9ff66, inset 0 0 22px #e8c9ff1c;
+}
