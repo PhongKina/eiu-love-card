@@ -568,3 +568,24 @@ h1 { max-width: 760px; margin: 0 auto; color: #fff1cf; font-size: clamp(30px, 4.
     0%, 100% { scale: .92; rotate: -5deg; opacity: .68; }
     50% { scale: 1.08; rotate: 5deg; opacity: 1; }
 }
+/* Arrange the moon, flower, and star in a calm horizontal row. */
+.flower-glow .flower-moon {
+    top: 50%;
+    right: auto;
+    left: 8%;
+    translate: 0 -50%;
+    animation: moonDrift 7s ease-in-out infinite;
+}
+.flower-glow .flower-star {
+    top: 50%;
+    right: 8%;
+    bottom: auto;
+    left: auto;
+    translate: 0 -50%;
+    fill: #ffe5a0;
+    animation: centralStarShine 4.5s ease-in-out infinite;
+}
+@keyframes moonDrift {
+    0%, 100% { translate: 0 -50%; rotate: -7deg; }
+    50% { translate: 0 calc(-50% - 8px); rotate: 2deg; }
+}
