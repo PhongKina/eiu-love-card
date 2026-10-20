@@ -651,3 +651,30 @@ h1 { max-width: 760px; margin: 0 auto; color: #fff1cf; font-size: clamp(30px, 4.
     .letter-copy.is-typing .letter-char:not(.is-written) { opacity: 1; }
     .letter-char.is-writing::after { display: none; }
 }
+/* Keep all three celestial bodies on one clockwise orbit with even spacing. */
+.flower-glow > .celestial-orbit-moon,
+.flower-glow > .celestial-orbit-star,
+.flower-glow > .celestial-orbit-sun {
+    animation-name: celestialOrbit;
+    animation-duration: 36s;
+    animation-direction: normal;
+}
+.flower-glow > .celestial-orbit-moon { animation-delay: 0s; }
+.flower-glow > .celestial-orbit-star { animation-delay: -12s; }
+.flower-glow > .celestial-orbit-sun { animation-delay: -24s; }
+.flower-glow .flower-sun {
+    position: absolute;
+    top: 0;
+    right: auto;
+    bottom: auto;
+    left: 50%;
+    width: clamp(76px, 13vw, 148px);
+    padding: clamp(12px, 2vw, 20px);
+    box-sizing: border-box;
+    translate: -50% -50%;
+    border: 1px solid #ffe3a277;
+    border-radius: 50%;
+    background: radial-gradient(circle, #fff1c51a 0 48%, #fff1c508 70%, transparent 72%);
+    box-shadow: 0 0 18px #ffc64f66, inset 0 0 22px #ffc64f1c;
+    filter: drop-shadow(0 0 14px #ffc64faa) drop-shadow(0 0 30px #ffb83f66);
+}
