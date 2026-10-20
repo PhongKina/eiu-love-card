@@ -207,7 +207,7 @@ function resizeStars() {
     canvas.style.height = height + "px";
     context.setTransform(ratio, 0, 0, ratio, 0, 0);
 
-    const count = Math.min(coarsePointer ? 150 : 620, Math.floor(width * height / (coarsePointer ? 3600 : 2200)));
+    const count = Math.min(coarsePointer ? 210 : 900, Math.floor(width * height / (coarsePointer ? 1500 : 1700)));
     stars = Array.from({ length: count }, () => {
         const depth = 0.34 + Math.random() * 0.76;
         return {
