@@ -528,3 +528,43 @@ h1 { max-width: 760px; margin: 0 auto; color: #fff1cf; font-size: clamp(30px, 4.
 .viewer-close::before { rotate: 45deg; }
 .viewer-close::after { rotate: -45deg; }
 .viewer-close:focus-visible { outline: 2px solid #ffe6b6; outline-offset: 3px; }
+/* Add a moon and a large star orbiting the central flower. */
+.flower-glow .flower-center {
+    position: relative;
+    z-index: 1;
+    text-shadow: 0 0 24px #ffd4a0, 0 0 58px #f8a8e7;
+    animation: slowTurn 24s linear infinite;
+}
+.flower-glow .flower-moon,
+.flower-glow .flower-star {
+    position: absolute;
+    z-index: 2;
+    overflow: visible;
+}
+.flower-glow .flower-moon {
+    top: 12%;
+    right: 15%;
+    width: clamp(76px, 13vw, 148px);
+    fill: #ffe8ac;
+    opacity: .82;
+    filter: drop-shadow(0 0 15px #ffe59a99) drop-shadow(0 0 34px #f6c85c66);
+    animation: moonDrift 7s ease-in-out infinite;
+}
+.flower-glow .flower-star {
+    bottom: 13%;
+    left: 13%;
+    width: clamp(72px, 12vw, 136px);
+    fill: #f5dcff;
+    opacity: .82;
+    filter: drop-shadow(0 0 14px #f5dcffcc) drop-shadow(0 0 34px #dcb4ff88);
+    transform-origin: center;
+    animation: centralStarShine 4.5s ease-in-out infinite;
+}
+@keyframes moonDrift {
+    0%, 100% { translate: 0 0; rotate: -7deg; }
+    50% { translate: 0 -9px; rotate: 2deg; }
+}
+@keyframes centralStarShine {
+    0%, 100% { scale: .92; rotate: -5deg; opacity: .68; }
+    50% { scale: 1.08; rotate: 5deg; opacity: 1; }
+}
