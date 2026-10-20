@@ -418,7 +418,7 @@ h1 { max-width: 760px; margin: 0 auto; color: #fff1cf; font-size: clamp(30px, 4.
     transform: none;
     animation: letterPhotoGlow 1.5s ease-in-out infinite alternate;
 }
-@media (max-width: 700px) {
+@media (max-width: 700px), (pointer: coarse) {
     .sunflower-letter.is-photo-zoomed {
         grid-template-columns: minmax(0, 1fr);
         grid-template-rows: auto auto;
@@ -442,4 +442,15 @@ h1 { max-width: 760px; margin: 0 auto; color: #fff1cf; font-size: clamp(30px, 4.
         grid-row: 2;
         padding: 0 4px 14px;
     }
+}
+
+@media (max-width: 700px), (pointer: coarse) {
+    .sunflower-card-dialog.is-open:has(.sunflower-letter.is-photo-zoomed) {
+        height: min(150vw, 92svh, 820px);
+    }
+    .sunflower-letter.is-photo-zoomed {
+        overflow-x: hidden;
+        scrollbar-width: none;
+    }
+    .sunflower-letter.is-photo-zoomed::-webkit-scrollbar { display: none; }
 }
