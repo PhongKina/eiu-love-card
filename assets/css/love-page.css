@@ -632,13 +632,22 @@ h1 { max-width: 760px; margin: 0 auto; color: #fff1cf; font-size: clamp(30px, 4.
     animation: none;
 }
 @keyframes celestialOrbit { to { rotate: 1turn; } }
-/* Reveal the greeting letter one character at a time after the blank page opens. */
-.letter-char { opacity: 1; }
-.letter-copy.is-typing .letter-char {
-    opacity: 0;
-    animation: letterCharacterReveal 1ms steps(1, end) forwards;
+/* A small writing cursor follows each revealed character; written text stays visible. */
+.letter-char { opacity: 1; transition: opacity .045s ease-out, color .08s ease-out, text-shadow .08s ease-out; }
+.letter-copy.is-typing .letter-char:not(.is-written) { opacity: 0; }
+.letter-char.is-writing { color: #a87832; text-shadow: 0 0 6px #e4bd75aa; }
+.letter-char.is-writing::after {
+    content: "";
+    display: inline-block;
+    width: 1.5px;
+    height: .9em;
+    margin-left: 1px;
+    vertical-align: -.08em;
+    background: #b7863f;
+    animation: writingCaret .65s steps(2, start) infinite;
 }
-@keyframes letterCharacterReveal { to { opacity: 1; } }
+@keyframes writingCaret { to { opacity: 0; } }
 @media (prefers-reduced-motion: reduce) {
-    .letter-copy.is-typing .letter-char { animation: none; opacity: 1; }
+    .letter-copy.is-typing .letter-char:not(.is-written) { opacity: 1; }
+    .letter-char.is-writing::after { display: none; }
 }

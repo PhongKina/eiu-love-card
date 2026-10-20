@@ -156,7 +156,9 @@ photoViewer.addEventListener("close", () => {
     if (lastSelectedPhoto) lastSelectedPhoto.focus();
 });
 const letterCopy = document.querySelector(".letter-copy");
-let letterCharacterIndex = 0;
+let letterTypingTimer = 0;
+let letterRevealDelay = 0;
+let letterPenTimer = 0;
 function prepareLetterTyping() {
     if (letterCopy.dataset.typingReady === "true") return;
     const walker = document.createTreeWalker(letterCopy, NodeFilter.SHOW_TEXT);
@@ -170,13 +172,51 @@ function prepareLetterTyping() {
             const letter = document.createElement("span");
             letter.className = "letter-char";
             letter.textContent = character;
-            letter.style.animationDelay = (500 + letterCharacterIndex * 18) + "ms";
-            letterCharacterIndex += 1;
             fragment.appendChild(letter);
         });
         textNode.parentNode.replaceChild(fragment, textNode);
     });
     letterCopy.dataset.typingReady = "true";
+}
+function startLetterTyping() {
+    prepareLetterTyping();
+    window.clearTimeout(letterRevealDelay);
+    window.clearInterval(letterTypingTimer);
+    window.clearTimeout(letterPenTimer);
+    const letters = letterCopy.querySelectorAll(".letter-char");
+    letters.forEach(letter => letter.classList.remove("is-written", "is-writing"));
+    letterCopy.classList.add("is-typing");
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        letters.forEach(letter => letter.classList.add("is-written"));
+        return;
+    }
+    letterRevealDelay = window.setTimeout(() => {
+        let index = 0;
+        letterTypingTimer = window.setInterval(() => {
+            if (index > 0) letters[index - 1].classList.remove("is-writing");
+            const letter = letters[index];
+            if (!letter) {
+                window.clearInterval(letterTypingTimer);
+                letterTypingTimer = 0;
+                return;
+            }
+            letter.classList.add("is-written", "is-writing");
+            index += 1;
+            if (index >= letters.length) {
+                window.clearInterval(letterTypingTimer);
+                letterTypingTimer = 0;
+                letterPenTimer = window.setTimeout(() => letter.classList.remove("is-writing"), 360);
+            }
+        }, 26);
+    }, 600);
+}
+function stopLetterTyping() {
+    window.clearTimeout(letterRevealDelay);
+    window.clearInterval(letterTypingTimer);
+    window.clearTimeout(letterPenTimer);
+    letterTypingTimer = 0;
+    letterCopy.classList.remove("is-typing");
+    letterCopy.querySelectorAll(".letter-char").forEach(letter => letter.classList.remove("is-written", "is-writing"));
 }const loveCardTrigger = document.getElementById("loveCardTrigger");
 const sunflowerCardDialog = document.getElementById("sunflowerCardDialog");
 const sunflowerCardClose = document.getElementById("sunflowerCardClose");
@@ -186,8 +226,8 @@ window.setTimeout(() => { loveCardTrigger.hidden = false; }, 5000);
 loveCardTrigger.addEventListener("click", () => sunflowerCardDialog.showModal());
 sunflowerSeal.addEventListener("click", () => {
     sunflowerCardDialog.classList.add("is-open");
-    prepareLetterTyping();
-    letterCopy.classList.add("is-typing");
+    startLetterTyping();
+
     sunflowerLetter.hidden = false;
 });
 sunflowerCardClose.addEventListener("click", () => sunflowerCardDialog.close());
@@ -200,7 +240,7 @@ sunflowerCardDialog.addEventListener("click", event => {
 sunflowerCardDialog.addEventListener("close", () => {
     sunflowerCardDialog.classList.remove("is-open");
     sunflowerLetter.classList.remove("is-photo-zoomed");
-    letterCopy.classList.remove("is-typing");
+    stopLetterTyping();
     letterPhoto.setAttribute("aria-expanded", "false");
     sunflowerLetter.hidden = true;
     loveCardTrigger.focus();
