@@ -403,3 +403,43 @@ h1 { max-width: 760px; margin: 0 auto; color: #fff1cf; font-size: clamp(30px, 4.
     .music-toggle:hover { transform: none; background: #21180de8; box-shadow: 0 5px 24px #0008, 0 0 18px #e8c16a2b; }
     .photo-heart { animation: none; }
 }
+
+/* Keep the letter photo and message in separate, balanced areas while zoomed. */
+.sunflower-letter.is-photo-zoomed {
+    grid-template-columns: minmax(0, .82fr) minmax(230px, 1.18fr);
+    gap: clamp(18px, 3vw, 32px);
+    overflow-x: clip;
+}
+.sunflower-letter.is-photo-zoomed .letter-copy { grid-column: 1; min-width: 0; }
+.sunflower-letter.is-photo-zoomed .letter-photo {
+    grid-column: 2;
+    justify-self: center;
+    width: min(100%, 320px);
+    transform: none;
+    animation: letterPhotoGlow 1.5s ease-in-out infinite alternate;
+}
+@media (max-width: 700px) {
+    .sunflower-letter.is-photo-zoomed {
+        grid-template-columns: minmax(0, 1fr);
+        grid-template-rows: auto auto;
+        align-content: start;
+        gap: 12px;
+        overflow-x: clip;
+        scrollbar-width: none;
+    }
+    .sunflower-letter.is-photo-zoomed::-webkit-scrollbar { display: none; }
+    .sunflower-letter.is-photo-zoomed .letter-photo {
+        grid-column: 1;
+        grid-row: 1;
+        justify-self: center;
+        width: min(62%, 220px);
+        max-width: 220px;
+        margin: clamp(140px, 34vw, 165px) 0 0;
+        transform: none;
+    }
+    .sunflower-letter.is-photo-zoomed .letter-copy {
+        grid-column: 1;
+        grid-row: 2;
+        padding: 0 4px 14px;
+    }
+}
