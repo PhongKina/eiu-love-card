@@ -454,3 +454,50 @@ h1 { max-width: 760px; margin: 0 auto; color: #fff1cf; font-size: clamp(30px, 4.
     }
     .sunflower-letter.is-photo-zoomed::-webkit-scrollbar { display: none; }
 }
+/* Center the photo detail viewer and pin its close control inside the frame. */
+.photo-viewer {
+    position: fixed;
+    inset: 50% auto auto 50%;
+    width: min(calc(100vw - 32px), 620px);
+    max-width: none;
+    max-height: calc(100vh - 40px);
+    max-height: calc(100dvh - 40px);
+    margin: 0;
+    padding: 56px 18px 20px;
+    overflow: auto;
+    box-sizing: border-box;
+    transform: translate(-50%, -50%);
+}
+.viewer-close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    float: none;
+    margin: 0;
+}
+.viewer-content { width: 100%; }
+.viewer-content img {
+    width: auto;
+    max-width: 100%;
+    max-height: min(68vh, 620px);
+    max-height: min(68dvh, 620px);
+    margin-inline: auto;
+}
+@media (max-width: 700px), (pointer: coarse) {
+    .photo-viewer {
+        width: calc(100vw - 32px);
+        max-height: calc(100vh - 32px);
+        max-height: calc(100dvh - 32px);
+        padding: 56px 14px 18px;
+        border-radius: 16px;
+    }
+    .viewer-content img {
+        max-width: 100%;
+        max-height: min(66vh, 520px);
+        max-height: min(66dvh, 520px);
+    }
+    .viewer-content figcaption {
+        margin-top: 14px;
+        font-size: clamp(16px, 4.5vw, 21px);
+    }
+}
