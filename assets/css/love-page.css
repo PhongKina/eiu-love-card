@@ -678,3 +678,17 @@ h1 { max-width: 760px; margin: 0 auto; color: #fff1cf; font-size: clamp(30px, 4.
     box-shadow: 0 0 18px #ffc64f66, inset 0 0 22px #ffc64f1c;
     filter: drop-shadow(0 0 14px #ffc64faa) drop-shadow(0 0 30px #ffb83f66);
 }
+/* The corner shortcut is a sunflower-only button; the note appears on its envelope. */
+.love-card-trigger {
+    justify-content: center;
+    width: 64px;
+    height: 64px;
+    max-width: none;
+    padding: 8px;
+    border-radius: 50%;
+    text-align: center;
+}
+.trigger-sunflower { flex: 0 0 46px; width: 46px; }
+.envelope-tap-hint { left: 50%; width: max-content; max-width: 88%; transform: translateX(-50%); text-align: center; }
+.envelope-note { display: block; margin-bottom: 2px; color: #785b35; font-weight: 600; letter-spacing: .02em; }
+.envelope-tap-hint > span:last-child { display: block; }
