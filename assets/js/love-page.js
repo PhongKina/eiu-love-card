@@ -155,7 +155,29 @@ photoViewer.addEventListener("click", event => {
 photoViewer.addEventListener("close", () => {
     if (lastSelectedPhoto) lastSelectedPhoto.focus();
 });
-const loveCardTrigger = document.getElementById("loveCardTrigger");
+const letterCopy = document.querySelector(".letter-copy");
+let letterCharacterIndex = 0;
+function prepareLetterTyping() {
+    if (letterCopy.dataset.typingReady === "true") return;
+    const walker = document.createTreeWalker(letterCopy, NodeFilter.SHOW_TEXT);
+    const textNodes = [];
+    while (walker.nextNode()) {
+        if (walker.currentNode.nodeValue.trim()) textNodes.push(walker.currentNode);
+    }
+    textNodes.forEach(textNode => {
+        const fragment = document.createDocumentFragment();
+        Array.from(textNode.nodeValue).forEach(character => {
+            const letter = document.createElement("span");
+            letter.className = "letter-char";
+            letter.textContent = character;
+            letter.style.animationDelay = (500 + letterCharacterIndex * 18) + "ms";
+            letterCharacterIndex += 1;
+            fragment.appendChild(letter);
+        });
+        textNode.parentNode.replaceChild(fragment, textNode);
+    });
+    letterCopy.dataset.typingReady = "true";
+}const loveCardTrigger = document.getElementById("loveCardTrigger");
 const sunflowerCardDialog = document.getElementById("sunflowerCardDialog");
 const sunflowerCardClose = document.getElementById("sunflowerCardClose");
 const sunflowerSeal = document.getElementById("sunflowerSeal");
@@ -164,6 +186,8 @@ window.setTimeout(() => { loveCardTrigger.hidden = false; }, 5000);
 loveCardTrigger.addEventListener("click", () => sunflowerCardDialog.showModal());
 sunflowerSeal.addEventListener("click", () => {
     sunflowerCardDialog.classList.add("is-open");
+    prepareLetterTyping();
+    letterCopy.classList.add("is-typing");
     sunflowerLetter.hidden = false;
 });
 sunflowerCardClose.addEventListener("click", () => sunflowerCardDialog.close());
@@ -176,6 +200,7 @@ sunflowerCardDialog.addEventListener("click", event => {
 sunflowerCardDialog.addEventListener("close", () => {
     sunflowerCardDialog.classList.remove("is-open");
     sunflowerLetter.classList.remove("is-photo-zoomed");
+    letterCopy.classList.remove("is-typing");
     letterPhoto.setAttribute("aria-expanded", "false");
     sunflowerLetter.hidden = true;
     loveCardTrigger.focus();
